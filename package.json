@@ -1,0 +1,28 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "delete copy.js",
+  "scripts": {
+    "start": "nodemon delete",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khAja13/telegram-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khAja13/telegram-bot/issues"
+  },
+  "homepage": "https://github.com/khAja13/telegram-bot#readme",
+  "dependencies": {
+    "dot-env": "^0.0.1",
+    "dotenv": "^16.0.3",
+    "megajs": "^1.1.1",
+    "node-telegram-bot-api": "^0.61.0",
+    "nodemon": "^2.0.20"
+  }
+}
