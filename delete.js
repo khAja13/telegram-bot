@@ -3,6 +3,7 @@ const {Storage} = require('megajs');
 var fs = require('fs');
 require('dotenv').config()
 
+console.log(process.env.TOKEN);
 const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
 var counter = 1;
 var Vcounter = 1;
@@ -11,7 +12,6 @@ const mega = new Storage({
   email: process.env.MAIL,
   password: process.env.PASS
 });
-console.log(process.env.TOKEN);
 
 mega.on('ready', () => {
   console.log('Successfully logged into MEGA');
