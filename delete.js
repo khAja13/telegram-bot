@@ -11,6 +11,7 @@ const mega = new Storage({
   email: process.env.MAIL,
   password: process.env.PASS
 });
+console.log(process.env.TOKEN);
 
 mega.on('ready', () => {
   console.log('Successfully logged into MEGA');
