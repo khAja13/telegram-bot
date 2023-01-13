@@ -1,15 +1,16 @@
 const TelegramBot = require('node-telegram-bot-api');
 const {Storage} = require('megajs');
 var fs = require('fs');
+const pathh = require('path')
 require('dotenv').config()
 
-const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
+const telegramBot = new TelegramBot('5742465224:AAEVLyhl79DrC5gOXPUBnutS0yqUPWH7Ogk', {polling: true});
 var counter = 1;
 var Vcounter = 1;
 
 const mega = new Storage({
-  email: process.env.MAIL,
-  password: process.env.PASS
+  email: 'khajashaik1000@gmail.com',
+  password: 'khajashaik1000@gmail.com'
 });
 
 mega.on('ready', () => {
@@ -31,13 +32,21 @@ telegramBot.on('message', (msg) => {
                 fileStream.pipe(uploadStream)
                 await fileStream.complete
                 console.log(`Successfully uploaded file : ${fileName}`)
-                telegramBot.sendMessage(chatId, `Seccessfully uploaded file : ${fileName}`)
-                return;
+                telegramBot.sendMessage(chatId, `Successfully uploaded file : ${fileName}`)
             }
             catch(err) {
                 telegramBot.sendMessage(chatId, 'An error occured while uploading the file to MEGA')
                 console.log(err);
             }
+            setTimeout(()=> {
+                fs.unlinkSync(pathh.join(__dirname,"\\",path), function (err) {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                      console.log("File removed:", path);
+                    }
+                });  
+            },2000)
         })
     }
     else if(msg.photo) {
@@ -53,14 +62,22 @@ telegramBot.on('message', (msg) => {
                 })
                 fileStream.pipe(uploadStream)
                 await fileStream.complete
-                console.log(`Seccessfully uploaded file : ${fileName}`)
-                telegramBot.sendMessage(chatId, `Seccessfully uploaded file : ${fileName}`)
-                return;
+                console.log(`Successfully uploaded file : ${fileName}`)
+                telegramBot.sendMessage(chatId, `Successfully uploaded file : ${fileName}`)
             }
             catch(err) {
                 telegramBot.sendMessage(chatId, 'An error occured while uploading the file to MEGA')
                 console.log(err);
             }
+            setTimeout(()=> {
+                fs.unlinkSync(pathh.join(__dirname,"\\",path), function (err) {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                      console.log("File removed:", path);
+                    }
+                });  
+            },2000)  
         })
     }
     else if(msg.video) {
@@ -76,14 +93,22 @@ telegramBot.on('message', (msg) => {
                 })
                 fileStream.pipe(uploadStream)
                 await fileStream.complete
-                console.log(`Seccessfully uploaded file : ${fileName}`)
+                console.log(`Successfully uploaded file : ${fileName}`)
                 telegramBot.sendMessage(chatId, `Seccessfully uploaded file : ${fileName}`)
-                return;
             }
             catch(err) {
                 telegramBot.sendMessage(chatId, 'An error occured while uploading the file to MEGA')
                 console.log(err);
             }
+            setTimeout(()=> {
+                fs.unlinkSync(pathh.join(__dirname,"\\",path), function (err) {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                      console.log("File removed:", path);
+                    }
+                });  
+            },2000)
         })
     }
     else {
