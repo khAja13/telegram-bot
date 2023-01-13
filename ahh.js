@@ -31,10 +31,10 @@ app.get('', async (req, res) => {
     const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
     var counter = 1;
     var Vcounter = 1;
-    let messageSent = false;
-
+    
     telegramBot.on('message', (msg) => {
         const chatId = msg.chat.id;
+        let messageSent = false;
 
         if(msg.document) {
             const fileId = msg.document.file_id
