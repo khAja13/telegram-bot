@@ -39,7 +39,7 @@ telegramBot.on('message', (msg) => {
                 console.log(err);
             }
             setTimeout(()=> {
-                fs.unlinkSync(pathh.join(__dirname,"\\",path), function (err) {
+                fs.unlinkSync(pathh.join(__dirname,path), function (err) {
                     if (err) {
                       console.error(err);
                     } else {
