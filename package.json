@@ -4,7 +4,7 @@
   "description": "",
   "main": "delete copy.js",
   "scripts": {
-    "start": "nodemon delete",
+    "start": "nodemon ahh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
