@@ -27,7 +27,7 @@ mega.on('ready', () => {
     console.log('Successfully logged into MEGA');
 });
 
-app.post(URI, async (req, res) => {
+app.get('', async (req, res) => {
     const telegramBot = new TelegramBot('5742465224:AAEVLyhl79DrC5gOXPUBnutS0yqUPWH7Ogk', {polling: true});
     var counter = 1;
     var Vcounter = 1;
