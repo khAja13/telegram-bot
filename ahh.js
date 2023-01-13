@@ -31,6 +31,7 @@ app.get('', async (req, res) => {
     const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
     var counter = 1;
     var Vcounter = 1;
+    let messageSent = false;
 
     telegramBot.on('message', (msg) => {
         const chatId = msg.chat.id;
@@ -131,7 +132,10 @@ app.get('', async (req, res) => {
             return;
         }
         else {
-            telegramBot.sendMessage(chatId, 'Please send a document to be uploaded to MEGA')
+            if(!messageSent){
+                telegramBot.sendMessage(chatId, 'Please send a document to be uploaded to MEGA');
+                messageSent = true;
+            }
         }
     })
 })
