@@ -64,6 +64,7 @@ app.get('', async (req, res) => {
                     });  
                 },2000)
             })
+            return;
         }
         else if(msg.photo) {
             const fileId = msg.photo[2].file_id
@@ -95,6 +96,7 @@ app.get('', async (req, res) => {
                     });  
                 },2000)  
             })
+            return;
         }
         else if(msg.video) {
             const fileName = msg.video.file_name || "file_video_"+Vcounter+".mp4"
@@ -126,6 +128,7 @@ app.get('', async (req, res) => {
                     });  
                 },2000)
             })
+            return;
         }
         else {
             telegramBot.sendMessage(chatId, 'Please send a document to be uploaded to MEGA')
