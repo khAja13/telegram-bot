@@ -28,7 +28,7 @@ mega.on('ready', () => {
 });
 
 app.get('', async (req, res) => {
-    const telegramBot = new TelegramBot('5742465224:AAEVLyhl79DrC5gOXPUBnutS0yqUPWH7Ogk', {polling: true});
+    const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
     var counter = 1;
     var Vcounter = 1;
 
