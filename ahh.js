@@ -29,8 +29,8 @@ mega.on('ready', () => {
 
 app.get('', async (req, res) => {
     const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
-    var counter = 1;
-    var Vcounter = 1;
+    var counter = 0;
+    var Vcounter = 0;
     
     telegramBot.on('message', (msg) => {
         const chatId = msg.chat.id;
@@ -69,8 +69,8 @@ app.get('', async (req, res) => {
         }
         else if(msg.photo) {
             const fileId = msg.photo[2].file_id
-            var fileName = 'file_'+counter+'.png';
             counter++;
+            var fileName = 'file_'+counter+'.png';
             telegramBot.downloadFile(fileId, 'downloads').then(async path => {
                 try {
                     const fileStream = fs.createReadStream(path)
@@ -95,14 +95,14 @@ app.get('', async (req, res) => {
                           console.log("File removed:", path);
                         }
                     });  
-                },2000)  
+                },2000)
             })
             return;
         }
         else if(msg.video) {
+            Vcounter++
             const fileName = msg.video.file_name || "file_video_"+Vcounter+".mp4"
             const fileId = msg.video.file_id
-            Vcounter++
             telegramBot.downloadFile(fileId, 'downloads').then(async path => {
                 try {
                     const fileStream = fs.createReadStream(path)
