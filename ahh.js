@@ -27,7 +27,7 @@ mega.on('ready', () => {
     console.log('Successfully logged into MEGA');
 });
 
-app.get('', async (req, res) => {
+function go() {
     const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
     var counter = 0;
     var Vcounter = 0;
@@ -138,9 +138,9 @@ app.get('', async (req, res) => {
             }
         }
     })
-})
+}
 
 app.listen(process.env.PORT || 5000, async () => {
     console.log('🚀 app running on port', process.env.PORT || 5000)
-    await init()
+    go()
 })
