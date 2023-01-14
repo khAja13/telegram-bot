@@ -7,18 +7,9 @@ const {Storage} = require('megajs');
 var fs = require('fs');
 const pathh = require('path')
 
-const { TOKEN, SERVER_URL } = process.env
-const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`
-const URI = `/webhook/${TOKEN}`
-const WEBHOOK_URL = SERVER_URL + URI
-
 const app = express()
 app.use(bodyParser.json())
 
-const init = async () => {
-    const res = await axios.get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`)
-    console.log(res.data)
-}
 const mega = new Storage({
     email: 'khajashaik1000@gmail.com',
     password: 'khajashaik1000@gmail.com'
@@ -28,6 +19,7 @@ mega.on('ready', () => {
 });
 
 function go() {
+    console.log("han");
     const telegramBot = new TelegramBot(process.env.TOKEN, {polling: true});
     var counter = 0;
     var Vcounter = 0;
